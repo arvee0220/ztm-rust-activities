@@ -10,33 +10,12 @@
 // * Implement functionality on the box struct to create a new box
 // * Implement functionality on the box struct to print the characteristics
 
-use std::fmt::Debug;
-use std::fmt::Formatter;
-use std::fmt::Result;
-
 // * Use an enum for the box color
+#[derive(Debug)]
 enum Color {
     White,
     Black,
 }
-
-impl Debug for Color {
-    fn fmt(&self, f: &mut Formatter) -> Result {
-        match self {
-            Color::White => write!(f, "White"),
-            Color::Black => write!(f, "Black"),
-        }
-    }
-}
-
-/* impl Color {
-    fn print(&self) {
-        match self {
-            Color::Black => println!("Black"),
-            Color::White => println!("White"),
-        }
-    }
-} */
 
 // * Use a struct to encapsulate the box characteristics
 struct ShippingBox {
