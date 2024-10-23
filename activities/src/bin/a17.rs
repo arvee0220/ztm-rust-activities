@@ -12,4 +12,12 @@
 //   to uppercase and lowercase
 //   * Try searching for: to_uppercase, to_lowercase
 
-fn main() {}
+fn main() {
+    let myself = "ROWELL";
+
+    let lower = &myself.to_lowercase();
+
+    let upper = &lower.to_uppercase();
+
+    println!("lower case: {lower:}, Upper case: {upper:}");
+}
