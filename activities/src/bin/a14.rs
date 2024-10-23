@@ -29,7 +29,8 @@ struct Person {
 } */
 
 fn print(data: &str) {
-    println!("{data:}")
+    println!("{data:?}")
+    
 }
 
 fn main() {
