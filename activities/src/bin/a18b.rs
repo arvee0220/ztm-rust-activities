@@ -70,7 +70,7 @@ fn main() {
         status: Status::Employed,
     };
 
-    let prev_employee: Employee = Employee {
+    let new_employee: Employee = Employee {
         name: "Mista.. Should I call you Mistah? Mistah Julian Pepe Onzema".to_owned(),
         position: Position::Maintenance,
         status: Status::Employed,
@@ -97,7 +97,7 @@ fn main() {
     let assembly_staff: Employee = Employee {
         name: "Malupiton".to_owned(),
         position: Position::AssemblyTechnician,
-        status: Status::Employed,
+        status: Status::Terminated,
     };
 
     match print_access(&spy) {
@@ -105,7 +105,7 @@ fn main() {
         _ => (),
     }
 
-    match print_access(&prev_employee) {
+    match print_access(&new_employee) {
         Err(e) => println!("Access denied: {e:?}"),
         _ => (),
     }
