@@ -11,4 +11,27 @@
 // * Return a result from the function
 // * The Err variant should detail the reason why they cannot make a purchase
 
-fn main() {}
+struct Customer {
+    name: String,
+    age: u32,
+}
+
+fn restricted_purchase(customer: &Customer) -> Result<String, String> {
+    if customer.age >= 21 {
+        println!("{:?}", customer.name);
+        Ok(String::from("Not a minor"))
+    } else {
+        Err(String::from("Minor"))
+    }
+}
+
+fn main() {
+    let buboy: Customer = Customer {
+        name: String::from("Buboy"),
+        age: 18,
+    };
+
+    let purchase = restricted_purchase(&buboy);
+
+    println!("{purchase:?}")
+}
