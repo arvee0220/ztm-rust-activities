@@ -52,7 +52,9 @@ fn access_allowed(employee: &Employee) -> Result<(), String> {
         Position::Maintenance => Ok(()),
         Position::Marketing => Ok(()),
         Position::Manager => Ok(()),
-        _ => Err(String::from("Peasant! Begone!")),
+        Position::AssemblyTechnician | Position::KitchenStaff | Position::LineSupervisor => Err(
+            String::from("Your current position is restricted to access this establishment"),
+        ),
     }
 }
 
