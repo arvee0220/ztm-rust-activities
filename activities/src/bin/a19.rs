@@ -23,9 +23,13 @@ fn main() {
     item.insert("Tables", 2);
     item.insert("Couches", 0);
 
+    let mut total_qty = 0;
+
     println!("Available furnitures: ");
 
-    for (name, quantity) in &item {
+    for (name, quantity) in item.iter() {
+        total_qty = total_qty + quantity;
+
         if *quantity > 0 {
             println!("name: {name:}");
             println!("Quantity: {quantity:}");
@@ -34,10 +38,17 @@ fn main() {
         }
     }
 
-    for (name, quantity) in item {
+    println!("Total quantity: {total_qty:}");
+
+    total_qty = 0;
+
+    for (name, quantity) in item.iter() {
+        total_qty = total_qty + quantity;
         match quantity {
             0 => println!("{name}, out of stock"),
             _ => print!("(name: {name}, quantity: {quantity}), "),
         }
     }
+
+    println!("Total quantity: {total_qty:}");
 }
