@@ -40,6 +40,7 @@ fn main() {
         name: String::from("GPT"),
     };
 
+
     let user = find_user(&sam).map(|user_id| User { user_id, name: sam });
 
     match user {
