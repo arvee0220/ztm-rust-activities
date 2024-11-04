@@ -21,6 +21,8 @@
 //   may enter the building
 // * Print whether the employee may access the building
 //   * Must use a function that utilizes the question mark operator to do this
+use std::fmt;
+
 #[derive(Debug)]
 enum Position {
     Maintenance,
@@ -31,11 +33,23 @@ enum Position {
     AssemblyTechnician,
 }
 
+#[derive(Debug)]
 enum Status {
     Employed,
     Terminated,
 }
 
+// Tested something
+impl fmt::Display for Status {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Status::Employed => write!(f, "Employed"),
+            Status::Terminated => write!(f, "Terminated"),
+        }
+    }
+}
+
+#[derive(Debug)]
 struct Employee {
     name: String,
     position: Position,
@@ -131,4 +145,31 @@ fn main() {
         Err(e) => println!("Access denied: {e:?}"),
         _ => (),
     }
+
+    // Tested something
+    let user: Employee = Employee {
+        name: "Alex".to_owned(),
+        position: Position::KitchenStaff,
+        status: Status::Employed,
+    };
+
+    let Employee {
+        mut name,
+        mut position,
+        mut status,
+    } = user;
+
+    println!("{name:?}, {position:?}, {status:}");
+
+    name = "Maloi".to_owned();
+    position = Position::LineSupervisor;
+    status = Status::Employed;
+
+    let user = Employee {
+        name,
+        position,
+        status,
+    };
+
+    println!("{user:?}");
 }
